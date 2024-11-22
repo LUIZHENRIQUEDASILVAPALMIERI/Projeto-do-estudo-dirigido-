@@ -1,0 +1,113 @@
+25-<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação Interativa</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Estilo do formulário */
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 250px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #218838;
+        }
+
+        /* Estilos da área de saudação */
+        .greeting {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Estilos para o círculo animado */
+        #circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007bff;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            animation: moveCircle 3s infinite alternate;
+        }
+
+        /* Animação do círculo */
+        @keyframes moveCircle {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(300px, 300px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Formulário de Saudação -->
+    <div class="form-container">
+        <h2>Saudação Interativa</h2>
+        <input type="text" id="name" placeholder="Digite seu nome" />
+        <button onclick="greetUser()">Saudar</button>
+        <div id="greeting" class="greeting"></div>
+    </div>
+
+    <!-- Círculo animado -->
+    <div id="circle"></div>
+
+    <script>
+        // Função para saudar o usuário
+        function greetUser() {
+            var name = document.getElementById("name").value;
+            var greetingMessage = document.getElementById("greeting");
+
+            if (name.trim() !== "") {
+                greetingMessage.textContent = "Olá, " + name + "! Seja bem-vindo!";
+            } else {
+                greetingMessage.textContent = "Por favor, insira seu nome!";
+            }
+        }
+    </script>
+    
+</body>
+</html>
